@@ -1,44 +1,89 @@
-import React from 'react'
-import imgLogo from '../../assets/images/logo.png';
-import styled from 'styled-components'
-
+import React, { Dispatch, SetStateAction } from "react";
+import imgLogo from "../../assets/images/logo.png";
+import styled from "styled-components";
+import Item from "./Item";
+import DarkModeButton from "../button/DarkModeButton";
+import SideButton from "../button/SideButton";
 
 const NavbarStyled = styled.div`
-    width: 100%;
+  background: ${({ theme }) => theme.colors.navbar};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: auto;
+  border-bottom: 1px solid #161616;
+  transition: all .5s ease-in-out;
+`;
+const NavbarContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  ${({ theme }) => theme.queries.bigDesktop} {
+    width: 1400px;
+  }
+  ${({ theme }) => theme.queries.mediumDesktop} {
+    width: 90vw;
+  }
+  ${({ theme }) => theme.queries.smallDesktop} {
+    width: 98vw;
+  }
+`;
+const MenuItems = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 60px;
+`;
+const LeftContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+`;
+const ImageContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
 `;
 const LogoImg = styled.img`
-    height: 30px;
+  height: 35px;
+  margin-right: 30px;
 `;
 
-const Navbar = () => {
-    return (
-        <NavbarStyled>
-            <div className="logo">
-                <LogoImg src={imgLogo} alt=""/>
-            </div>
-
-            <div className="menu-items">
-                <div className="item">
-                    Tutoriales
-                </div>
-                <div className="item">
-                    Cursos
-                </div>
-                <div className="item">
-                    Blog
-                </div>
-                <div className="item">
-                    Portafolio
-                </div>
-                <div className="button">
-                    Iniciar Sesión
-                </div>
-            </div>
-        </NavbarStyled>
-    )
+interface Iprops {
+  myTheme: boolean;
+  setDark: Dispatch<SetStateAction<boolean>>;
 }
+const Navbar: React.FC<Iprops> = ({myTheme, setDark}) => {
+  return (
+    <NavbarStyled>
+      <NavbarContainer>
+        <LeftContainer>
+        <ImageContainer>
+          <LogoImg src={imgLogo} alt="" />
+        </ImageContainer>
 
-export default Navbar
+        <MenuItems>
+          <Item text="Inicio" />
+          <Item text="Cursos" />
+          <Item text="Blog" />
+          <Item text="Portafolio" />
+        </MenuItems>
+        </LeftContainer>
+        <div className="rigth-container">
+        <MenuItems>
+            <DarkModeButton myTheme={myTheme} setDark={setDark} />
+            <SideButton myTheme={myTheme}/>
+            {/* <Item text="Iniciar Sesión" />
+            <Item text="Registrarse" /> */}
+        </MenuItems>
+        </div>
+      </NavbarContainer>
+    </NavbarStyled>
+  );
+};
+
+export default Navbar;

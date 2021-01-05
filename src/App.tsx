@@ -5,13 +5,13 @@ import themes from "./assets/styles/Theme";
 import GlobalStyle from "./assets/styles/GlobalStyles";
 
 function App() {
-  const [theme, toggleTheme] = useState(true);
+  const [myTheme, toggleTheme] = useState(true);
 
   return (
-      <ThemeProvider theme={themes[theme ? 'dark' : 'light']}>
+      <ThemeProvider theme={themes[myTheme ? 'dark' : 'light']}>
         <GlobalStyle />
         <div className="App">
-          <LandingPage />
+          <LandingPage myTheme={myTheme} setDark={toggleTheme} />
         </div>
       </ThemeProvider>
   );
