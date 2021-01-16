@@ -14,6 +14,8 @@ const NavbarStyled = styled.div`
   height: auto;
   border-bottom: 1px solid #161616;
   transition: all .5s ease-in-out;
+  width: 100%;
+  position: fixed;
 `;
 const NavbarContainer = styled.div`
   width: 100%;
@@ -36,7 +38,7 @@ const MenuItems = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
-  height: 60px;
+  height: 70px;
 `;
 const LeftContainer = styled.div`
     display: flex;
@@ -49,8 +51,8 @@ align-items: center;
 justify-content: center;
 `;
 const LogoImg = styled.img`
-  height: 35px;
-  margin-right: 30px;
+  height: 30px;
+  margin-right: 20px;
 `;
 
 interface Iprops {
@@ -63,7 +65,7 @@ const Navbar: React.FC<Iprops> = ({myTheme, setDark}) => {
       <NavbarContainer>
         <LeftContainer>
         <ImageContainer>
-          <LogoImg src={imgLogo} alt="" />
+          <LogoImg src="https://codechappie.now.sh/static/media/logo-white.daf29dc9.png" alt="" />
         </ImageContainer>
 
         <MenuItems>

@@ -11,13 +11,16 @@ const GlobalStyle = createGlobalStyle`
      -moz-user-select: none;
      -webkit-user-select: none;
      box-sizing: border-box;
-     font-family: 'Mulish', sans-serif;
+     font-family: 'Jost', sans-serif;
   }
   h1{
     font-size: 3.5em;
+    word-spacing: 6px;
+    letter-spacing: .02em;
+    line-height: 1.1em;
   }
   h2{
-    font-size: 3.1em;
+    font-size: 3em;
   }
   h3{
     font-size: 2.5em;
@@ -33,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
   }
   p{
     font-size: 1.2em;
+    font-weight: 400px;
   }
 `;
 export default GlobalStyle;

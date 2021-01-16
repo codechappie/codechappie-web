@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ItemStyled = styled.div`
-    padding: 10px 5px;
+    padding: 12px 5px;
     margin: 10px 4px 10px 8px;
     cursor: pointer;
 
